@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Attach event listener to the product form
-  productForm.addEventListener("change", function (event) {
+  variantSelect.addEventListener("change", function (event) {
     // Clear all selected attributes and set the new one
     Array.from(variantSelect.options).forEach((option) => option.removeAttribute("selected"));
 
