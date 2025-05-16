@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Initial variables
-  const productForm = document.getElementById("product-form"); // ✅ UPDATED to match new form ID
+  const productForm = document.getElementById("product-form");
   const productName = document.querySelector(".product-title");
   const productPriceElement = document.querySelector(".product-price");
   const image = document.querySelector(".product-image");
   const variantSelect = document.getElementById("variant");
-  const protectionCheckbox = document.getElementById("add-protection-checkbox"); // ✅ NEW
-  const extendOfferContainer = document.getElementById("extend-offer"); // ✅ NEW
+  const protectionCheckbox = document.getElementById("add-protection-checkbox");
+  const extendOfferContainer = document.getElementById("extend-offer");
 
   let variantId;
   let productPrice;
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (!variantId || !productPrice || !category) return;
 
-      // ✅ Render Extend offer if checkbox is checked
+      // Opens Extend offer when checked
       if (protectionCheckbox.checked) {
         extendOfferContainer.style.display = "block"; // ✅ show offer
         Extend.buttons.render("#extend-offer", {
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // ✅ Toggle visibility + render on checkbox change
+  // Checkbox toggle visibility
   protectionCheckbox.addEventListener("change", function () {
     if (this.checked) {
       extendOfferContainer.style.display = "block";
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!variantId || !productPrice || !category) return;
 
-    // ✅ If checkbox is checked, update the Extend offer
+    // If checkbox is checked, update Extend offer
     if (protectionCheckbox.checked) {
       const component = Extend.buttons.instance("#extend-offer");
       if (component) {
