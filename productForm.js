@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Opens Extend offer when checked
       if (protectionCheckbox.checked) {
-        extendOfferContainer.style.display = "block"; // ✅ show offer
+        extendOfferContainer.style.display = "block";
         Extend.buttons.render("#extend-offer", {
           referenceId: variantId,
           price: productPrice,
@@ -50,8 +50,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if (this.checked) {
       extendOfferContainer.style.display = "block";
 
-      // Check if Extend already rendered; if not, render it
-      if (!Extend.buttons.instance("#extend-offer")) {
+      // Get the instance
+      const component = Extend.buttons.instance("#extend-offer");
+
+      if (component) {
+        // Update the existing component
+        component.setActiveProduct(variantId);
+      } else {
+        // Render if not already rendered
         Extend.buttons.render("#extend-offer", {
           referenceId: variantId,
           price: productPrice,
